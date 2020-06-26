@@ -1,0 +1,50 @@
+### register
+POST http://localhost:3000/users
+Content-Type: application/json
+
+{
+  "username": "Alex",
+  "firstName": "Alex",
+  "lastName": "Keith",
+  "gender": "Male",
+  "birthDate": "1985-3-29",
+  "email": "alex@test.com",
+  "password": "alexk",
+  "profilePic": "https://source.unsplash.com/weekly?man"
+}
+
+### user list
+GET http://localhost:3000/users
+
+### block user
+POST http://localhost:3000/users/:userId
+
+### login
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "alex@test.com",
+  "password": "alexk"
+}
+
+### user profile
+GET http://localhost:3000/profile
+
+### update profile
+POST http://localhost:3000/profile
+Content-Type: application/json
+
+{
+  "username": "JaneDoe",
+  "firstName": "Jane",
+  "lastName": "Lim",
+  "gender": "Female",
+  "birthDate": "1988-1-1",
+  "email": "jane.doe@test.com",
+  "password": "jenny",
+  "profilePic": "https://source.unsplash.com/weekly?woman"
+}
+
+### delete user
+DELETE http://localhost:3000/users/:userId

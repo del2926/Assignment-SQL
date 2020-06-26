@@ -1,0 +1,17 @@
+{
+  "sqltools.connections": [
+    {
+      "database": "blogger",
+      "driver": "MySQL",
+      "mysqlOptions": {
+        "authProtocol": "default"
+      },
+      "name": "blogger",
+      "password": "siti@Del2926",
+      "port": 3306,
+      "previewLimit": 50,
+      "server": "localhost",
+      "username": "root"
+    }
+  ]
+}
