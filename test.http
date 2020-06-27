@@ -1,38 +1,36 @@
-### register
 POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "username": "Alex",
-  "firstName": "Alex",
-  "lastName": "Keith",
+  "username": "JoeLim",
+  "firstName": "Joe",
+  "lastName": "Lim",
   "gender": "Male",
-  "birthDate": "1985-3-29",
-  "email": "alex@test.com",
-  "password": "alexk",
+  "birthDate": "1984-5-11",
+  "email": "joelim@test.com",
+  "password": "joelim",
   "profilePic": "https://source.unsplash.com/weekly?man"
 }
 
-### user list
-GET http://localhost:3000/users
-
-### block user
-POST http://localhost:3000/users/:userId
-
-### login
 POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "email": "alex@test.com",
-  "password": "alexk"
+  "email": "joelim@test.com",
+  "password": "joelim"
 }
 
-### user profile
-GET http://localhost:3000/profile
+GET http://localhost:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzE4MjB9.5Gzs1p11tyOaYn8aMkxDRSEowT1ITbUUIufHHOW4rZg
 
-### update profile
+GET http://localhost:3000/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzIzMjR9.Z_INDJmnwJi0lPbwTMRhYBlIqTKWSZ98P07nGoL6TEw
+
+GET http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzQ3ODl9.9RRi_24gfxsejlyP9dkm7HGyQ225x2xLAf08Sd26dPY
+
 POST http://localhost:3000/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzQ0Nzd9.7imEI7D4PKhJkU8FrYBlbPDJTPj_LhhJJ5b-Q1OTn7I
 Content-Type: application/json
 
 {
@@ -46,5 +44,8 @@ Content-Type: application/json
   "profilePic": "https://source.unsplash.com/weekly?woman"
 }
 
-### delete user
-DELETE http://localhost:3000/users/:userId
+POST http://localhost:3000/users/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzE4MjB9.5Gzs1p11tyOaYn8aMkxDRSEowT1ITbUUIufHHOW4rZg
+
+DELETE http://localhost:3000/users/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzE4MjB9.5Gzs1p11tyOaYn8aMkxDRSEowT1ITbUUIufHHOW4rZg

@@ -41,7 +41,7 @@ exports.loginUser = (req, res, next) => {
     .findOne({ where: { email: email } })
     .then((user) => {
       if (!user) {
-        res.statusCode = 404;
+        res.statusCode = 401;
         res.send({ message: "No such user exists!" });
       } else {
         if (user.isBlock) {
@@ -70,26 +70,31 @@ exports.loginUser = (req, res, next) => {
 
 exports.userList = (req, res, next) => {
   models.user
-    .findAll({ attributes: { exclude: ["password", "profilePic"] } })
+    .findAll({
+      attributes: { exclude: ["password", "createdAt", "updatedAt"] },
+    })
     .then((users) => {
       res.send(users);
     })
     .catch((err) => console.log(err));
 };
 
+exports.userDetail = (req, res, next) => {
+  const userId = req.params.userId;
+  models.user
+    .findByPk(userId)
+    .then((user) => {
+      res.send(user);
+    })
+    .catch((err) => console.log(err));
+};
+
 exports.userProfile = (req, res, next) => {
+  const userId = req.params.userId;
   models.user
     .findOne({
-      where: { id: 2 },
       attributes: {
-        exclude: [
-          "id",
-          "isAdmin",
-          "isActive",
-          "isBlock",
-          "createdAt",
-          "updatedAt",
-        ],
+        exclude: ["isAdmin", "isActive", "isBlock", "createdAt", "updatedAt"],
       },
     })
     .then((user) => {
@@ -99,6 +104,7 @@ exports.userProfile = (req, res, next) => {
 };
 
 exports.updateProfile = (req, res, next) => {
+  const userId = req.params.userId;
   const updatedUsername = req.body.username;
   const updatedFirstName = req.body.firstName;
   const updatedLastName = req.body.lastName;
@@ -108,7 +114,7 @@ exports.updateProfile = (req, res, next) => {
   const updatedPassword = req.body.password;
   const updatedProfilePic = req.body.profilePic;
   models.user
-    .findOne({ where: { id: 3 } })
+    .findOne(userId)
     .then((user) => {
       bcrypt.hash(updatedPassword, 12).then((updatedHashedPassword) => {
         user.username = updatedUsername;
@@ -127,8 +133,9 @@ exports.updateProfile = (req, res, next) => {
 };
 
 exports.blockUser = (req, res, next) => {
+  const userId = req.params.userId;
   models.user
-    .findOne({ where: { id: 2 } })
+    .findByPk(userId)
     .then((user) => {
       user.isBlock = true;
       user.save();
@@ -138,11 +145,12 @@ exports.blockUser = (req, res, next) => {
 };
 
 exports.deleteUser = (req, res, next) => {
+  const userId = req.params.userId;
   models.user
-    .destroy({ where: { id: 3 } })
+    .destroy({ where: { id: userId } })
     .then((user) => {
-      res.statusCode = 404;
-      res.send({ message: "No such user exists!" });
+      res.statusCode = 401;
+      res.send({ message: "Your user account has been deleted!" });
     })
     .catch((err) => console.log(err));
 };
