@@ -90,17 +90,8 @@ exports.userDetail = (req, res, next) => {
 };
 
 exports.userProfile = (req, res, next) => {
-  const userId = req.params.userId;
-  models.user
-    .findOne({
-      attributes: {
-        exclude: ["isAdmin", "isActive", "isBlock", "createdAt", "updatedAt"],
-      },
-    })
-    .then((user) => {
-      res.send(user);
-    })
-    .catch((err) => console.log(err));
+  const user = req.user;
+  res.send(user);
 };
 
 exports.updateProfile = (req, res, next) => {
@@ -113,8 +104,9 @@ exports.updateProfile = (req, res, next) => {
   const updatedEmail = req.body.email;
   const updatedPassword = req.body.password;
   const updatedProfilePic = req.body.profilePic;
+  const user = req.user;
   models.user
-    .findOne(userId)
+    .update(user)
     .then((user) => {
       bcrypt.hash(updatedPassword, 12).then((updatedHashedPassword) => {
         user.username = updatedUsername;
@@ -148,7 +140,7 @@ exports.deleteUser = (req, res, next) => {
   const userId = req.params.userId;
   models.user
     .destroy({ where: { id: userId } })
-    .then((user) => {
+    .then((result) => {
       res.statusCode = 401;
       res.send({ message: "Your user account has been deleted!" });
     })

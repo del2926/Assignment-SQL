@@ -20,7 +20,7 @@ router
   .delete(userMiddleware.authenticateUser, userController.deleteUser);
 
 router
-  .route("/profile")
+  .route("/my-profile")
   .get(userMiddleware.authenticateUser, userController.userProfile)
   .post(userMiddleware.authenticateUser, userController.updateProfile);
 

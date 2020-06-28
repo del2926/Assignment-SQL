@@ -2,13 +2,13 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "username": "JoeLim",
-  "firstName": "Joe",
-  "lastName": "Lim",
+  "username": "Adam",
+  "firstName": "Adam",
+  "lastName": "Lee",
   "gender": "Male",
-  "birthDate": "1984-5-11",
-  "email": "joelim@test.com",
-  "password": "joelim",
+  "birthDate": "1985-6-11",
+  "email": "adamlee@test.com",
+  "password": "adamlee",
   "profilePic": "https://source.unsplash.com/weekly?man"
 }
 
@@ -16,36 +16,36 @@ POST http://localhost:3000/login
 Content-Type: application/json
 
 {
-  "email": "joelim@test.com",
-  "password": "joelim"
+   "email": "janelee@test.com",
+  "password": "janelee"
 }
 
 GET http://localhost:3000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzE4MjB9.5Gzs1p11tyOaYn8aMkxDRSEowT1ITbUUIufHHOW4rZg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMzMjQ2OTF9.ZQWnaRWMKoM3Nv6yUU2IpRkXEqSWs1lSIjYF7D51XcA
 
-GET http://localhost:3000/users/3
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzIzMjR9.Z_INDJmnwJi0lPbwTMRhYBlIqTKWSZ98P07nGoL6TEw
+GET http://localhost:3000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMzMjQ2OTF9.ZQWnaRWMKoM3Nv6yUU2IpRkXEqSWs1lSIjYF7D51XcA
 
-GET http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzQ3ODl9.9RRi_24gfxsejlyP9dkm7HGyQ225x2xLAf08Sd26dPY
+GET http://localhost:3000/my-profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMzMjc3MjV9.5CeARPX_n4OKPBp1v9tah8haKzbn0cObKoA_pzmorko
 
-POST http://localhost:3000/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzQ0Nzd9.7imEI7D4PKhJkU8FrYBlbPDJTPj_LhhJJ5b-Q1OTn7I
+POST http://localhost:3000/my-profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMzMjc3MjV9.5CeARPX_n4OKPBp1v9tah8haKzbn0cObKoA_pzmorko
 Content-Type: application/json
 
 {
-  "username": "JaneDoe",
-  "firstName": "Jane",
-  "lastName": "Lim",
-  "gender": "Female",
-  "birthDate": "1988-1-1",
-  "email": "jane.doe@test.com",
-  "password": "jenny",
-  "profilePic": "https://source.unsplash.com/weekly?woman"
+  "username": "Adam",
+  "firstName": "Adam",
+  "lastName": "Evans",
+  "gender": "Male",
+  "birthDate": "1985-6-11",
+  "email": "adamevans@test.com",
+  "password": "adamevans",
+  "profilePic": "https://source.unsplash.com/weekly?man"
 }
 
-POST http://localhost:3000/users/4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzE4MjB9.5Gzs1p11tyOaYn8aMkxDRSEowT1ITbUUIufHHOW4rZg
+POST http://localhost:3000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMzMjQ2OTF9.ZQWnaRWMKoM3Nv6yUU2IpRkXEqSWs1lSIjYF7D51XcA
 
-DELETE http://localhost:3000/users/5
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMyNzE4MjB9.5Gzs1p11tyOaYn8aMkxDRSEowT1ITbUUIufHHOW4rZg
+DELETE http://localhost:3000/users/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1OTMzMjQ2OTF9.ZQWnaRWMKoM3Nv6yUU2IpRkXEqSWs1lSIjYF7D51XcA
